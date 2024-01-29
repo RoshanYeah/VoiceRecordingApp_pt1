@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Client Name</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Use the full viewport height */
+            background: linear-gradient(to bottom, #ff6f61, #fe9d8a);
+            color: #333;
+            margin: 0; /* Remove margin to avoid extra space */
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px; /* Add spacing below the heading */
+            font-family: 'Times New Roman', Times, serif;
+        }
+        form {
+            margin: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        p {
+            font-size: 24px;
+            display: none; /* Initially hide the welcome message */
+        }
+    </style>
+</head>
+<body>
+    <h1 id="instructions">Enter Your Name:</h1>
+    <form method="POST">
+        <input type="text" id="name-input" name="name">
+        <input type="submit" id="submit-button" value="Submit" onclick="showWelcomeMessage(event)">
+    </form>
+    <p id="welcome-message"></p>
+
+    <script>
+        function showWelcomeMessage(event) {
+            event.preventDefault(); // Prevent form submission
+            var nameInput = document.getElementById("name-input");
+            var submitButton = document.getElementById("submit-button");
+            var welcomeMessage = document.getElementById("welcome-message");
+            var enterText = document.getElementById("instructions");
+    
+            var name = nameInput.value;
+    
+            // Hide input and button
+            nameInput.style.display = "none";
+            submitButton.style.display = "none";
+            enterText.style.display = "none";
+    
+            // Show the welcome message and set its text
+            welcomeMessage.style.display = "block";
+            welcomeMessage.style.fontFamily = "'Times New Roman', Times, serif";
+            welcomeMessage.textContent = "Welcome " + name + ", you are now entering the world of relaxation.";
+        }
+    </script>
+</body>
+</html>
